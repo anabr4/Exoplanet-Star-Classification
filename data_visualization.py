@@ -12,7 +12,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sn
 
-# Read the Train dataframe
+# Read the Train dataset and convert it to Pandas DataFrame
 current_path = pathlib.Path().absolute()
 exoTrain = pd.read_csv(os.path.join(current_path, "data/", "exoTrain.csv"))
 
