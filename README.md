@@ -5,6 +5,7 @@ An exoplanet, or extrasolar planet, is the one that orbits a star outside our so
 
 ## Table of Contents
 
+- [Setup](#setup)
 - [The Data: Star Light Intensities vs Time](#the-data-star-light-intensities-vs-time)
 - [References](#references)
 
@@ -46,12 +47,21 @@ The [data](https://www.kaggle.com/keplersmachines/kepler-labelled-time-series-da
 Even if stars exhibit dimming in their intensity period, further study is required to confirm its existence, e.g. employing satellites capturing different wavelengths that provide additional data to ensure the results obteined with the transit method.<br>
 The data presented here are cleaned and are derived from observations made by the NASA Kepler space telescope. Over 99% of this dataset originates from Campaign 3. To boost the number of exoplanet-stars in the dataset, confirmed exoplanets from other campaigns were also included.<br> Data provided is already divided into Training and Testing data.
 
+The training data describe the change in flux of 5087 stars (observations) for 3197 time points (columns 2 to 3198) plus their label (column 1), which are the features and target. On the other hand, the test data describe the change in flux of 570 stars for the same features and target. Furthermore:
+*   in training data there are 37 confirmed exoplanet-stars and 5050 non-exoplanet-stars.
+*   in testing data there are 5 confirmed exoplanet-stars and 565 non-exoplanet-stars.
+
 ### The Code
 Executing the data_visualization.py file we obtain the fluxes of six different star, the first three which are labelled as 2 (confirmed at least one exoplanet-hosting star) and the latter three as 1 (non-exoplanet-hosting star). This script load the data stored in the data folder and run through the Train dataset plotting each flux value with respect to its time instant, selecting three stars which are labelled as 2 and three as 1.<be>
 We can run it in the terminal doing:
 <pre><code> $ python data_visualization.py </code></pre>
 The flux spectra obtained for these six stars are the following:
 ![Fluxes](plots/starfluxspectra.png)
+We already see that some of the stars that are clasified with 2 do not have a very clear flux spectrum.
+
+Now we will observe the relationship between variables.
+
+First with Pair plots, which show that the first 5 light intensities are almost linear, which means that the flux measured in one instant of one star is correlated to the subsequent flux of that star and between different stars in those time instants. However, there are some values quite separated from the rest.
 
 ## References
 [1] Priyadarshini, I., & Puri, V. (2021). A convolutional neural network (CNN) based ensemble model for exoplanet detection. Earth Science Informatics, 14(2), 735-747.<br>
