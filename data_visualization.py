@@ -19,6 +19,7 @@ exoTrain = pd.read_csv(os.path.join(current_path, "data/", "exoTrain.csv"))
 # Function to plot each star (row) flux into a different figure
 def flux_graph(dataset, target):
   # Title, labels, size...
+  plt.rcParams["font.family"] = "Times"
   plt.style.use('dark_background')
   fig, axs = plt.subplots(6, 1)
   fig.set_size_inches(18.5, 16.5)
