@@ -11,3 +11,5 @@ The [data](https://www.kaggle.com/keplersmachines/kepler-labelled-time-series-da
 Even if stars exhibit dimming in their intensity period, further study is required to confirm its existence, e.g. employing satellites capturing different wavelengths that provide additional data to ensure the results obteined with the transit method.
 
 Data provided is already divided into Training and Testing data.
+
+Executing the data visualization 
