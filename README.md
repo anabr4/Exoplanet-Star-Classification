@@ -31,9 +31,10 @@ Below, we provide instructions for setting up this repository on a local machine
      <pre><code>$ source activate exo_env </code></pre>
 
 ### Getting started in Colab
-1. Head to Colab
-2. Select 'GitHub' → paste the link main_notebook.ipynb → ENTER → click on the file Exoplanet_Detection.ipynb.
-3. In the Google Colab toolbar select: Runtime → Change Runtime. This will open another popup where you should ensure the runtime type is Python 3 and the hardware accelerator is GPU.
+1. Head to Drive and open a new Colab file.
+2. Click on File → click on Open notebook → Select 'GitHub' → paste the link to Exoplanet_Detection.ipynb → ENTER → click on the file Exoplanet_Detection.ipynb.
+3. Download and add data folder to the folder in which you have saved the notebook.
+4. In the Google Colab toolbar select: Runtime → Change Runtime. This will open another popup where you should ensure the runtime type is Python 3 and the hardware accelerator is GPU.
    
 You're all set for executing the code.
 
