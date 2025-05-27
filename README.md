@@ -8,16 +8,48 @@ An exoplanet, or extrasolar planet, is the one that orbits a star outside our so
 - [The Data: Star Light Intensities vs Time](#the-data-star-light-intensities-vs-time)
 - [References](#references)
 
+## Setup 
+Below, we provide instructions for setting up this repository on a local machine and in Google Colab (to open the Notebook Exoplanet_Detection.ipynb).
+
+### Getting started on a local machine
+1. Install git
+   
+   <pre><code>$ sudo apt install git</code></pre>
+2. Clone the repository in a your own directory
+   
+   <pre><code>$ git clone https://github.com/anabr4/Exoplanet-Star-Classification.git</code></pre>
+3. Enter the directory
+   
+   <pre><code>$ cd Exoplanet-Star-Classification/</code></pre>
+4. Create a virtual environment with all the libraries that are needed to run the python scripts. You can create a virtual environment using Anaconda:<br>
+     i. Install anaconda3 [https://docs.anaconda.com/anaconda/install/](https://docs.anaconda.com/anaconda/install/.)<br>
+     ii. Create a virtual environment named exo_env with all the necessary libraries listed in environment.yml
+   
+     <pre><code>$ conda env create -f environment.yml </code></pre>
+     iii. Activate it
+   
+     <pre><code>$ source activate exo_env </code></pre>
+
+### Getting started in Colab
+1. Head to Colab
+2. Select 'GitHub' → paste the link main_notebook.ipynb → ENTER → click on the file Exoplanet_Detection.ipynb.
+3. In the Google Colab toolbar select: Runtime → Change Runtime. This will open another popup where you should ensure the runtime type is Python 3 and the hardware accelerator is GPU.
+   
+You're all set for executing the code.
+
 ## The Data: Star Light Intensities vs Time
 The [data](https://www.kaggle.com/keplersmachines/kepler-labelled-time-series-data) has been cleaned and obtained from observations made by the NASA Kepler space telescope. It describe the change in flux (light intensity)(units not mentioned) of several thousand stars, with binary label 2 or 1, indicating the presence of at least one exoplanet in orbit or its absence, respectively. The transit method, used in this dataset, is an indirect method for detecting exoplanets, which consists in observing periodic dimming of a star's light intensity as a planet passes in front of it, as shown in the picture below.
 ![image](https://github.com/user-attachments/assets/84389833-a3bb-481c-a84f-f36f443172ea)
 (credit: NASA Ames)
 
 Even if stars exhibit dimming in their intensity period, further study is required to confirm its existence, e.g. employing satellites capturing different wavelengths that provide additional data to ensure the results obteined with the transit method.<br>
-Data provided is already divided into Training and Testing data.
+The data presented here are cleaned and are derived from observations made by the NASA Kepler space telescope. Over 99% of this dataset originates from Campaign 3. To boost the number of exoplanet-stars in the dataset, confirmed exoplanets from other campaigns were also included.<br> Data provided is already divided into Training and Testing data.
 
 ### The Code
-Executing the data_visualization.py file we obtain the fluxes of six different star, the first three which are labelled as 2 (confirmed at least one exoplanet-hosting star) and the latter three as 1 (non-exoplanet-hosting star).
+Executing the data_visualization.py file we obtain the fluxes of six different star, the first three which are labelled as 2 (confirmed at least one exoplanet-hosting star) and the latter three as 1 (non-exoplanet-hosting star). This script load the data stored in the data folder and run through the Train dataset plotting each flux value with respect to its time instant, selecting three stars which are labelled as 2 and three as 1.<be>
+We can run it in the terminal doing:
+<pre><code> $ python data_visualization.py </code></pre>
+The flux spectra obtained for these six stars are the following:
 ![Fluxes](plots/starfluxspectra.png)
 
 ## References
