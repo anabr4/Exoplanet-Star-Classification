@@ -15,7 +15,7 @@ An exoplanet, or extrasolar planet, is the one that orbits a star outside our so
 Below, we provide instructions for setting up this repository on a local machine and in Google Colab (to open the Notebook Exoplanet_Detection.ipynb).
 
 ### Getting started on a local machine
-1. Install git
+1. Open terminal and install git
    
    <pre><code>$ sudo apt install git</code></pre>
 2. Clone the repository in a your own directory
