@@ -7,6 +7,8 @@ An exoplanet, or extrasolar planet, is the one that orbits a star outside our so
 
 - [Setup](#setup)
 - [The Data: Star Light Intensities vs Time](#the-data-star-light-intensities-vs-time)
+   - [Data Visualization](#data-visualization)
+   - [Data Analysis](#data-analysis)
 - [References](#references)
 
 ## Setup 
@@ -51,7 +53,7 @@ The training data describe the change in flux of 5087 stars (observations) for 3
 *   in training data there are 37 confirmed exoplanet-stars and 5050 non-exoplanet-stars.
 *   in testing data there are 5 confirmed exoplanet-stars and 565 non-exoplanet-stars.
 
-### The Code
+### Data Visualization
 Executing the data_visualization.py file we obtain the fluxes of six different star, the first three which are labelled as 2 (confirmed at least one exoplanet-hosting star) and the latter three as 1 (non-exoplanet-hosting star). This script load the data stored in the data folder and run through the Train dataset plotting each flux value with respect to its time instant, selecting three stars which are labelled as 2 and three as 1.<be>
 We can run it in the terminal doing:
 <pre><code> $ python data_visualization.py </code></pre>
@@ -59,13 +61,24 @@ The flux spectra obtained for these six stars are the following:
 ![Fluxes](plots/starfluxspectra.png)
 We already see that some of the stars that are clasified with 2 do not have a very clear flux spectrum.
 
+### Data Analysis
 Now we will observe the relationship between variables.
 
-First with Pair plots, exectuting 
+With Pair plots we can see the correlation between different features, exectuting 
+<pre><code> $ python data_analysis.py </code></pre>
+We will plot these relationships for the first 5 flux values, then we will search for the outliers that are seen in them, remove them and show the Pair Plots again.
 
+We obtain three plots, the first one:
+![PairPlots](plots/pairplot.png)
 They show that the first 5 light intensities are almost linear for fluxes near in time (in fact when we compare the first flux value with the fifth of them we see that linearity is lost), which means that the flux measured in one instant of one star is correlated to the subsequent flux of that star and between different stars in those time instants. However, there are some values quite separated from the rest, in fact, it seems that one star in each pairplot has a flux actually separated from the rate, which means that we have at least one outlier.
+
+After removing them with the Standard Deviation method, in which, the number of $\sigma$ that has been chosen analysing non-exoplanet-hosting stars with spectra clearly noisy, we obtain the following plots:
+![PairPlots_out](plots/pairplot_out.png)
+And a Kernel Density Estimate Plot of Flux 1 to estimate the probability distribution of this continuous variable. We can see that the distribution for label 2 (exoplanet-hosting-star) is highly under-represented.
+![KDE1](plots/kde1plot.png)
 
 ## References
 [1] Priyadarshini, I., & Puri, V. (2021). A convolutional neural network (CNN) based ensemble model for exoplanet detection. Earth Science Informatics, 14(2), 735-747.<br>
 [2] Chawla, N. V., Bowyer, K. W., Hall, L. O., & Kegelmeyer, W. P. (2002). SMOTE: synthetic minority over-sampling technique. Journal of artificial intelligence research, 16, 321-357.<br>
-[3] Chintarungruangchai, P., & Jiang, G. (2019). Detecting exoplanet transits through machine-learning techniques with convolutional neural networks. Publications of the Astronomical Society of the Pacific, 131(1000), 064502.
+[3] Chintarungruangchai, P., & Jiang, G. (2019). Detecting exoplanet transits through machine-learning techniques with convolutional neural networks. Publications of the Astronomical Society of the Pacific, 131(1000), 064502.<br>
+[4] Outlier Detection Methods. [https://www.kaggle.com/code/marcinrutecki/outlier-detection-methods](https://www.kaggle.com/code/marcinrutecki/outlier-detection-methods)
