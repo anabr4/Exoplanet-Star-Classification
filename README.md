@@ -26,12 +26,17 @@ Below, we provide instructions for setting up this repository on a local machine
    <pre><code>$ cd Exoplanet-Star-Classification/</code></pre>
 4. Create a virtual environment with all the libraries that are needed to run the python scripts. You can create a virtual environment using Anaconda:<br>
      i. Install anaconda3 [https://docs.anaconda.com/anaconda/install/](https://docs.anaconda.com/anaconda/install/.)<br>
-     ii. Create a virtual environment named exo_env with all the necessary libraries listed in environment.yml
+     ii. Create a virtual environment executing the following line:
    
-     <pre><code>$ conda env create -f environment.yml </code></pre>
+     <pre><code>$ conda create -n exo_env python=3.11.13 anaconda </code></pre>
      iii. Activate it
    
-     <pre><code>$ source activate exo_env </code></pre>
+     <pre><code>$ conda activate exo_env </code></pre>
+
+     iv. Install the requirements (all necessary libraries).
+   
+     <pre><code>$ pip install -r requirements.txt </code></pre>
+   
 
 ### Getting started in Colab
 1. Head to Drive and open a new Colab file.
