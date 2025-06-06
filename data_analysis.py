@@ -84,6 +84,6 @@ sn.kdeplot(data = pd.concat([subset_data_out[subset_data_out['LABEL'] != 2], sub
 
 # Save as a png
 fig1.savefig(str(current_path) + "/plots/pairplot.png")
-fig2.savefig(str(current_path) + "/plots/kde1plot.png")
+fig2.savefig(str(current_path) + "/plots/kde1plot.png",  bbox_inches='tight')
 fig3.savefig(str(current_path) + "/plots/pairplot_out.png")
 print("The three plots have been created with the first 5 fluxes of all stars")
