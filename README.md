@@ -71,7 +71,7 @@ Now we will observe the relationship between variables.
 
 With Pair plots we can see the correlation between different features, exectuting 
 <pre><code> $ python data_analysis.py </code></pre>
-We will plot these relationships for the first 5 flux values, then we will search for the outliers that are seen in them, remove them and show the Pair Plots again.
+We will plot these relationships for the first 5 flux values, then, we will search for the outliers that are seen in them, print the number of stars with at least one outlier that passes the condition we have imposed and remove them. Furthermore we will show the Pair Plots again.
 
 We obtain three plots, the first one:
 ![PairPlots](plots/pairplot.png)
