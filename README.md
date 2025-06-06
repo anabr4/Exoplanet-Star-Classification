@@ -60,7 +60,7 @@ The training data describe the change in flux of 5087 stars (observations) for 3
 
 ### Data Visualization
 Executing the data_visualization.py file we obtain the fluxes of six different star, the first three which are labelled as 2 (confirmed at least one exoplanet-hosting star) and the latter three as 1 (non-exoplanet-hosting star). This script load the data stored in the data folder and run through the Train dataset plotting each flux value with respect to its time instant, selecting three stars which are labelled as 2 and three as 1.<be>
-We can run it in the terminal doing:
+We can run it in our virtual environment doing:
 <pre><code> $ python data_visualization.py </code></pre>
 The flux spectra obtained for these six stars are the following:
 ![Fluxes](plots/starfluxspectra.png)
