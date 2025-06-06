@@ -61,7 +61,9 @@ We already see that some of the stars that are clasified with 2 do not have a ve
 
 Now we will observe the relationship between variables.
 
-First with Pair plots, which show that the first 5 light intensities are almost linear, which means that the flux measured in one instant of one star is correlated to the subsequent flux of that star and between different stars in those time instants. However, there are some values quite separated from the rest.
+First with Pair plots, exectuting 
+
+They show that the first 5 light intensities are almost linear for fluxes near in time (in fact when we compare the first flux value with the fifth of them we see that linearity is lost), which means that the flux measured in one instant of one star is correlated to the subsequent flux of that star and between different stars in those time instants. However, there are some values quite separated from the rest, in fact, it seems that one star in each pairplot has a flux actually separated from the rate, which means that we have at least one outlier.
 
 ## References
 [1] Priyadarshini, I., & Puri, V. (2021). A convolutional neural network (CNN) based ensemble model for exoplanet detection. Earth Science Informatics, 14(2), 735-747.<br>
