@@ -86,14 +86,14 @@ And a Kernel Density Estimate Plot of Flux 1 to estimate the probability distrib
 ## Data Pre-Processing
 We have already seen one of the aspects to adress, outliers, so first, we will remove them also from the train dataset. Another thing to adress is to treat missing values but there aren't, so we should have accurate prediction models.
 
-Neural networks tend to perform best when their inputs are on a common scale. So, other thing that we should consider is scaling the data on a common scale before introducing it to the DL model, however, we have seen that flux spectra worsen if we perform the Standard Scaling on training data, and it is more difficult to distinguish between the flux of a star which has an exoplanet orbiting and one which hasn't, visually. We also performed the scaling, after pre-processing data, and trained the model, but we also obtained worse results.
+Neural networks tend to perform best when their inputs are on a common scale. So, other thing that we should consider is scaling the data on a common scale before introducing it to the DL model, however, we have seen that flux spectra worsen if we perform the Standard Scaling and a Gaussian filter, to smooth the spectra, on training data, and it is more difficult to distinguish between the flux of a star which has an exoplanet orbiting and one which hasn't, visually. We also performed the scaling, after pre-processing data, and trained the model, but we also obtained worse results.
 
 Other thing that we should do before training our model with data is changing the values of the labels to 0 and 1 as convention:
 - 1 --> 0
 - 2 --> 1
 
 We have seen that Train and Test datasets present a class imbalanced of the order 100 to 1, so probably we could achieve a high accuracy on classifying non-exoplanet stars but we would find difficulties to have a high rate of correct detection of the minority class (in our case exoplanet stars).<br>
-We propose an over-sampling approach in which the minority class is over-sampled by creating “synthetic” examples rather than by over-sampling with replacement.<br>
+We propose an over-sampling approach in which the minority class is over-sampled by creating “synthetic” examples (explicar el significado de SMOTE) rather than by over-sampling with replacement.<br>
 The majority class is under-sampled by randomly removing samples from the majority class population until the minority class becomes some specified percentage of the majority class.
 
 Executing the followiing script:
