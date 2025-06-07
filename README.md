@@ -133,5 +133,5 @@ As we have mentioned, light flux spectra after applying Standard Scaling and a G
 [1] Priyadarshini, I., & Puri, V. (2021). A convolutional neural network (CNN) based ensemble model for exoplanet detection. Earth Science Informatics, 14(2), 735-747.<br>
 [2] Chawla, N. V., Bowyer, K. W., Hall, L. O., & Kegelmeyer, W. P. (2002). SMOTE: synthetic minority over-sampling technique. Journal of artificial intelligence research, 16, 321-357.<br>
 [3] Chintarungruangchai, P., & Jiang, G. (2019). Detecting exoplanet transits through machine-learning techniques with convolutional neural networks. Publications of the Astronomical Society of the Pacific, 131(1000), 064502.<br>
-[4] Outlier Detection Methods. [https://www.kaggle.com/code/marcinrutecki/outlier-detection-methods](https://www.kaggle.com/code/marcinrutecki/outlier-detection-methods)
+[4] Outlier Detection Methods. [https://www.kaggle.com/code/marcinrutecki/outlier-detection-methods](https://www.kaggle.com/code/marcinrutecki/outlier-detection-methods)<br>
 [5] Mathur, S., Sizon, S., & Goel, N. (2020). Identifying exoplanets using deep learning and predicting their likelihood of habitability. In Advances in Machine Learning and Computational Intelligence: Proceedings of ICMLCI 2019 (pp. 369-379). Singapore: Springer Singapore.
