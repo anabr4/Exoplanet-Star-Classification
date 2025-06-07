@@ -9,6 +9,7 @@ An exoplanet, or extrasolar planet, is the one that orbits a star outside our so
 - [The Data: Star Light Intensities vs Time](#the-data-star-light-intensities-vs-time)
    - [Data Visualization](#data-visualization)
    - [Data Analysis](#data-analysis)
+- [Data Pre-Processing](#data-pre-processing)
 - [References](#references)
 
 ## Setup 
@@ -75,12 +76,28 @@ We will plot these relationships for the first 5 flux values, then, we will sear
 
 We obtain three plots, the first one:
 ![PairPlots](plots/pairplot.png)
-They show that the first 5 light intensities are almost linear for fluxes near in time (in fact when we compare the first flux value with the fifth of them we see that linearity is lost), which means that the flux measured in one instant of one star is correlated to the subsequent flux of that star and between different stars in those time instants. However, there are some values quite separated from the rest, in fact, it seems that one star in each pairplot has a flux actually separated from the rate, which means that we have at least one outlier.
+They show that the first 5 light intensities are almost linear for fluxes near in time (in fact when we compare the first flux value with the fifth of them we see that linearity is lost), which means that the flux measured in one instant of one star is correlated to the subsequent flux of that star and between different stars in those time instants. However, there are some values quite separated from the rest, in fact, it seems that one non-exoplanet-hosting star in each pairplot has a flux actually separated from the rest, which means that we have at least one outlier.
 
 After removing them with the Standard Deviation method, in which, the number of $\sigma$ that has been chosen analysing non-exoplanet-hosting stars with spectra clearly noisy, we obtain the following plots:
 ![PairPlots_out](plots/pairplot_out.png)
-And a Kernel Density Estimate Plot of Flux 1 to estimate the probability distribution of this continuous variable. We can see that the distribution for label 2 (exoplanet-hosting-star) is highly under-represented.
+And a Kernel Density Estimate Plot of Flux 1 to estimate the probability distribution of this continuous variable. We can see that the distribution for both labels are highly imbalanced, as label 2 (exoplanet-hosting-star) is almost not seen in the plot, so we will try to handle this problem later.
 ![KDE1](plots/kde1plot.png)
+
+## Data Pre-Processing
+We have already seen one of the aspects to adress, outliers, so first, we will remove them also from the train dataset. Another thing to adress is to treat missing values but there aren't, so we should have accurate prediction models.
+
+Neural networks tend to perform best when their inputs are on a common scale. So, other thing that we should consider is scaling the data on a common scale before introducing it to the DL model, however, we have seen that flux spectra worsen if we perform the Standard Scaling on training data, and it is more difficult to distinguish between the flux of a star which has an exoplanet orbiting and one which hasn't, visually. We also performed the scaling, after pre-processing data, and trained the model, but we also obtained worse results.
+
+Other thing that we should do before training our model with data is changing the values of the labels to 0 and 1 as convention:
+- 1 --> 0
+- 2 --> 1
+
+We have seen that Train and Test datasets present a class imbalanced of the order 100 to 1, so probably we could achieve a high accuracy on classifying non-exoplanet stars but we would find difficulties to have a high rate of correct detection of the minority class (in our case exoplanet stars).<br>
+We propose an over-sampling approach in which the minority class is over-sampled by creating “synthetic” examples rather than by over-sampling with replacement.<br>
+The majority class is under-sampled by randomly removing samples from the majority class population until the minority class becomes some specified percentage of the majority class.
+
+Executing the followiing script:
+
 
 ## References
 [1] Priyadarshini, I., & Puri, V. (2021). A convolutional neural network (CNN) based ensemble model for exoplanet detection. Earth Science Informatics, 14(2), 735-747.<br>
