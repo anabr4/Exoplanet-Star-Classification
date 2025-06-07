@@ -15,6 +15,16 @@ import seaborn as sn
 # Read the Train dataset and convert it to Pandas DataFrame
 current_path = pathlib.Path().absolute()
 exoTrain = pd.read_csv(os.path.join(current_path, "data/", "exoTrain.csv"))
+exoTest = pd.read_csv(os.path.join(current_path, "data/", "exoTest.csv"))
+
+# Showing the number of rows and columns of both datasets
+print('The shape of the Trainset is (rows,columns)=', exoTrain.shape,'\n and the one of the Testset is (rows,columns)=', exoTest.shape)
+
+# Printing the number of non-exoplanet-stars and exoplanet-stars
+# 1 ---> No Exoplanet
+# 2 ---> Exoplanet
+print('Traning dataset:\n', exoTrain['LABEL'].value_counts())
+print('Testing dataset:\n', exoTest['LABEL'].value_counts())
 
 # Function to plot each star (row) flux into a different figure
 def flux_graph(dataset, target):
