@@ -63,7 +63,7 @@ The training data describe the change in flux of 5087 stars (observations) for 3
 *   in testing data there are 5 confirmed exoplanet-stars and 565 non-exoplanet-stars.
 
 ### Data Visualization
-Executing the data_visualization.py file we obtain the fluxes of six different star, the first three which are labelled as 2 (confirmed at least one exoplanet-hosting star) and the latter three as 1 (non-exoplanet-hosting star). This script load the data stored in the data folder and run through the Train dataset plotting each flux value with respect to its time instant, selecting three stars which are labelled as 2 and three as 1.<be>
+Executing the data_visualization.py file we obtain the fluxes of six different star, the first three which are labelled as 2 (confirmed at least one exoplanet-hosting star) and the latter three as 1 (non-exoplanet-hosting star). This script load the data stored in the data folder and run through the Train dataset plotting each flux value with respect to its time instant, selecting three stars which are labelled as 2 and three as 1. It also shows the number of stars labelled with 1 and with 2, respectively, and the shape of both datasets, as shown above.<be>
 We can run it in our virtual environment doing:
 <pre><code> $ python data_visualization.py </code></pre>
 The flux spectra obtained for these six stars are the following:
@@ -75,15 +75,18 @@ Now we will observe the relationship between variables.
 
 With Pair plots we can see the correlation between different features, exectuting 
 <pre><code> $ python data_analysis.py </code></pre>
-We will plot these relationships for the first 5 flux values, then, we will search for the outliers that are seen in them, print the number of stars with at least one outlier that passes the condition we have imposed and remove them. Furthermore we will show the Pair Plots again.
+We will plot these relationships for the first 5 flux values, then, we will search for the outliers that are seen in them, print the number of stars with at least one outlier that passes the condition we have imposed and remove them. Furthermore we will show the Pair Plots again. All plots will be saved in 'plots' folder.
 
 We obtain three plots, the first one:
+
 ![PairPlots](plots/pairplot.png)
 They show that the first 5 light intensities are almost linear for fluxes near in time (in fact when we compare the first flux value with the fifth of them we see that linearity is lost), which means that the flux measured in one instant of one star is correlated to the subsequent flux of that star and between different stars in those time instants. However, there are some values quite separated from the rest, in fact, it seems that one non-exoplanet-hosting star in each pairplot has a flux actually separated from the rest, which means that we have at least one outlier.
 
 After removing them with the Standard Deviation method, in which, the number of $\sigma$ that has been chosen analysing non-exoplanet-hosting stars with spectra clearly noisy, we obtain the following plots:
+
 ![PairPlots_out](plots/pairplot_out.png)
 And a Kernel Density Estimate Plot of Flux 1 to estimate the probability distribution of this continuous variable. We can see that the distribution for both labels are highly imbalanced, as label 2 (exoplanet-hosting-star) is almost not seen in the plot, so we will try to handle this problem later.
+
 ![KDE1](plots/kde1plot.png)
 
 ## Data Pre-Processing
@@ -100,6 +103,8 @@ We propose an over-sampling approach in which the minority class is over-sampled
 The majority class is under-sampled by randomly removing samples from the majority class population until the minority class becomes some specified percentage of the majority class.
 
 Executing the followiing script:
+<pre><code> $ python data_preprocessing.py </code></pre>
+We print the number of missing values (zero), we save the plot of the flux spectra, after applying data filtering and smoothing, in 'plots' folder and we save the pickle file with x_train, y_train, x_test and y_test (to ensure that it is mantained the data structure of x and y in train and test datasets) in 'data' folder. 
 
 ## CNN Model
 
