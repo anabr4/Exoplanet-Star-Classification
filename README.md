@@ -10,6 +10,9 @@ An exoplanet, or extrasolar planet, is the one that orbits a star outside our so
    - [Data Visualization](#data-visualization)
    - [Data Analysis](#data-analysis)
 - [Data Pre-Processing](#data-pre-processing)
+- [CNN Model](#cnn-model)
+- [When you are done](#when-you-are-done)
+- [Conclusion](#conclusion)
 - [References](#references)
 
 ## Setup 
@@ -98,6 +101,24 @@ The majority class is under-sampled by randomly removing samples from the majori
 
 Executing the followiing script:
 
+## CNN Model
+
+## When you are done
+
+## Conclusion
+1. Deactivate the virtual environment
+
+   <pre><code> $ conda deactivate </code></pre>
+
+2. Remove the environment
+
+   <pre><code> $ conda env remove -n exo_env</code></pre>
+
+3. Delete the project folder, inside the Exoplanet Star Classification folder, run:
+
+   <pre><code> $ rm -fr .git 
+    $ cd ..
+    $ rm -r Exoplanet-Star-Classification</code></pre>
 
 ## References
 [1] Priyadarshini, I., & Puri, V. (2021). A convolutional neural network (CNN) based ensemble model for exoplanet detection. Earth Science Informatics, 14(2), 735-747.<br>
