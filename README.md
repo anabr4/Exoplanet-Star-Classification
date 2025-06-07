@@ -106,6 +106,10 @@ Executing the followiing script:
 <pre><code> $ python data_preprocessing.py </code></pre>
 We print the number of missing values (zero), we save the plot of the flux spectra, after applying data filtering and smoothing, in 'plots' folder and we save the pickle file with x_train, y_train, x_test and y_test (to ensure that it is mantained the data structure of x and y in train and test datasets) in 'data' folder. 
 
+As we have mentioned, light flux spectra after applying Standard Scaling and a Gaussian filter is:
+
+![spectra_SSGaus](plots/spectra_gausSS.png)
+
 ## CNN Model
 
 ## When you are done
