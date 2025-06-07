@@ -113,8 +113,6 @@ As we have mentioned, light flux spectra after applying Standard Scaling and a G
 ## CNN Model
 
 ## When you are done
-
-## Conclusion
 1. Deactivate the virtual environment
 
    <pre><code> $ conda deactivate </code></pre>
@@ -128,6 +126,8 @@ As we have mentioned, light flux spectra after applying Standard Scaling and a G
    <pre><code> $ rm -fr .git 
     $ cd ..
     $ rm -r Exoplanet-Star-Classification</code></pre>
+
+## Conclusion
 
 ## References
 [1] Priyadarshini, I., & Puri, V. (2021). A convolutional neural network (CNN) based ensemble model for exoplanet detection. Earth Science Informatics, 14(2), 735-747.<br>
