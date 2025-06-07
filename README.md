@@ -82,7 +82,7 @@ We obtain three plots, the first one:
 ![PairPlots](plots/pairplot.png)
 They show that the first 5 light intensities are almost linear for fluxes near in time (in fact when we compare the first flux value with the fifth of them we see that linearity is lost), which means that the flux measured in one instant of one star is correlated to the subsequent flux of that star and between different stars in those time instants. However, there are some values quite separated from the rest, in fact, it seems that one non-exoplanet-hosting star in each pairplot has a flux actually separated from the rest, which means that we have at least one outlier.
 
-After removing them with the Standard Deviation method, in which, the number of $\sigma$ that has been chosen analysing non-exoplanet-hosting stars with spectra clearly noisy, we obtain the following plots:
+After removing them with the Standard Deviation method [4], in which the number of $\sigma$ has been chosen analysing non-exoplanet-hosting stars with spectra clearly noisy, we obtain the following plots:
 
 ![PairPlots_out](plots/pairplot_out.png)
 And a Kernel Density Estimate Plot of Flux 1 to estimate the probability distribution of this continuous variable. We can see that the distribution for both labels are highly imbalanced, as label 2 (exoplanet-hosting-star) is almost not seen in the plot, so we will try to handle this problem later.
@@ -92,14 +92,14 @@ And a Kernel Density Estimate Plot of Flux 1 to estimate the probability distrib
 ## Data Pre-Processing
 We have already seen one of the aspects to adress, outliers, so first, we will remove them also from the train dataset. Another thing to adress is to treat missing values but there aren't, so we should have accurate prediction models.
 
-Neural networks tend to perform best when their inputs are on a common scale. So, other thing that we should consider is scaling the data on a common scale before introducing it to the DL model, however, we have seen that flux spectra worsen if we perform the Standard Scaling and a Gaussian filter, to smooth the spectra, on training data, and it is more difficult to distinguish between the flux of a star which has an exoplanet orbiting and one which hasn't, visually. We also performed the scaling, after pre-processing data, and trained the model, but we also obtained worse results.
+Neural networks tend to perform best when their inputs are on a common scale. So, other thing that we should consider is scaling the data on a common scale before introducing it to the DL model, however, we have seen that flux spectra worsen if we perform the Standard Scaling and a Gaussian filter [5], to smooth the spectra, on training data, and it is more difficult to distinguish between the flux of a star which has an exoplanet orbiting and one which hasn't, visually. We also performed the scaling, after pre-processing data, and trained the model, but we also obtained worse results.
 
 Other thing that we should do before training our model with data is changing the values of the labels to 0 and 1 as convention:
 - 1 --> 0
 - 2 --> 1
 
 We have seen that Train and Test datasets present a class imbalanced of the order 100 to 1, so probably we could achieve a high accuracy on classifying non-exoplanet stars but we would find difficulties to have a high rate of correct detection of the minority class (in our case exoplanet stars).<br>
-We propose an over-sampling approach in which the minority class is over-sampled by creating “synthetic” examples (explicar el significado de SMOTE) rather than by over-sampling with replacement.<br>
+We propose an over-sampling approach in which the minority class is over-sampled by creating “synthetic” examples (synthetic minority over-sampling technique [2]) rather than by over-sampling with replacement.<br>
 The majority class is under-sampled by randomly removing samples from the majority class population until the minority class becomes some specified percentage of the majority class.
 
 Executing the followiing script:
@@ -134,3 +134,4 @@ As we have mentioned, light flux spectra after applying Standard Scaling and a G
 [2] Chawla, N. V., Bowyer, K. W., Hall, L. O., & Kegelmeyer, W. P. (2002). SMOTE: synthetic minority over-sampling technique. Journal of artificial intelligence research, 16, 321-357.<br>
 [3] Chintarungruangchai, P., & Jiang, G. (2019). Detecting exoplanet transits through machine-learning techniques with convolutional neural networks. Publications of the Astronomical Society of the Pacific, 131(1000), 064502.<br>
 [4] Outlier Detection Methods. [https://www.kaggle.com/code/marcinrutecki/outlier-detection-methods](https://www.kaggle.com/code/marcinrutecki/outlier-detection-methods)
+[5] Mathur, S., Sizon, S., & Goel, N. (2020). Identifying exoplanets using deep learning and predicting their likelihood of habitability. In Advances in Machine Learning and Computational Intelligence: Proceedings of ICMLCI 2019 (pp. 369-379). Singapore: Springer Singapore.
