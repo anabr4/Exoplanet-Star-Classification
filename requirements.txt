@@ -9,6 +9,7 @@ numpy==1.23.5
 pandas==2.2.0
 pylint==2.15.10
 scikit-learn==1.6.1
+imbalanced-learn==0.12.0
 scipy==1.15.3
 seaborn==0.13.2
 tensorflow==2.16.2
