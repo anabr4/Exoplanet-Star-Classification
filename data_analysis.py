@@ -19,6 +19,8 @@ import collections as cls
 current_path = pathlib.Path().absolute()
 exoTrain = pd.read_csv(os.path.join(current_path, "data/", "exoTrain.csv"))
 
+plt.rcParams["font.family"] = "Times"
+
 # PairPlot for first 5 columns (first 5 features) with all oobservations (stars)
 subset_data = exoTrain.iloc[:, [0] + list(range(1, 6))]
 # We write explicitely the order of the concatenation to plot the stars labelled with 2 above the one with label 1
