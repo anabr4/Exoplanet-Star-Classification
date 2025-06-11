@@ -113,7 +113,8 @@ As we have mentioned, light flux spectra after applying Standard Scaling and a G
 ## CNN Model
 Finally, after obtaining processed training data, we can proceed to train our proposed model, a Convolutional Neural Network, which was chosen because of its local connectivity property, which means that neurons in one layer are only connected to neurons in the next layer that are spatially close to them. This design reduce the vast majority of connections between consecutive layers, but keeps the ones that carry the most useful information. The assumption made here is that the input data has spatial significance. In our case, the star light spectra are continuous functions, so each point of the spectra function is related to its neighbors.<br>
 It consists of the following layer architecture:
-* Normalization Layer: after introducing feautures in the input layer (reshaping it to adjust it to the neutwork), this layer applies a feature-wise normalization to the input data, converting the mean to 0 and the standard deviation to 1.
+* Normalization Layer: after introducing features in the input layer (reshaping it to adjust it to the network), this layer applies a feature-wise normalization to the input data, converting the mean to 0 and the standard deviation to 1.
+* Convolutional 1D Layers: 
 
 ## When you are done
 1. Deactivate the virtual environment
