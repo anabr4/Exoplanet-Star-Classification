@@ -45,6 +45,7 @@ You're all set for executing the code.
 
 ## The Data: Star Light Intensities vs Time
 The [data](https://www.kaggle.com/keplersmachines/kepler-labelled-time-series-data) has been cleaned and obtained from observations made by the NASA Kepler space telescope. It describe the change in flux (light intensity)(units not mentioned) of several thousand stars, with binary label 2 or 1, indicating the presence of at least one exoplanet in orbit or its absence, respectively. The transit method, used in this dataset, is an indirect method for detecting exoplanets, which consists in observing periodic dimming of a star's light intensity as a planet passes in front of it, as shown in the picture below.
+
 ![image](https://github.com/user-attachments/assets/84389833-a3bb-481c-a84f-f36f443172ea)
 (credit: NASA Ames)
 
@@ -60,7 +61,9 @@ Executing the data_visualization.py file we obtain the fluxes of six different s
 We can run it in our virtual environment doing:
 <pre><code> $ python data_visualization.py </code></pre>
 The flux spectra obtained for these six stars are the following:
+
 ![Fluxes](plots/starfluxspectra.png)
+
 We already see that some of the stars that are clasified with 2 do not have a very clear flux spectrum.
 
 ### Data Analysis
@@ -73,11 +76,13 @@ We will plot these relationships for the first 5 flux values, then, we will sear
 We obtain three plots, the first one:
 
 ![PairPlots](plots/pairplot.png)
+
 They show that the first 5 light intensities are almost linear for fluxes near in time (in fact when we compare the first flux value with the fifth of them we see that linearity is lost), which means that the flux measured in one instant of one star is correlated to the subsequent flux of that star and between different stars in those time instants. However, there are some values quite separated from the rest, in fact, it seems that one non-exoplanet-hosting star in each pairplot has a flux actually separated from the rest, which means that we have at least one outlier.
 
 After removing them with the Standard Deviation method [4], in which the number of $\sigma$ has been chosen analysing non-exoplanet-hosting stars with spectra clearly noisy, we obtain the following plots:
 
 ![PairPlots_out](plots/pairplot_out.png)
+
 And a Kernel Density Estimate Plot of Flux 1 to estimate the probability distribution of this continuous variable. We can see that the distribution for both labels are highly imbalanced, as label 2 (exoplanet-hosting-star) is almost not seen in the plot, so we will try to handle this problem later.
 
 ![KDE1](plots/kde1plot.png)
