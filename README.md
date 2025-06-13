@@ -133,7 +133,7 @@ Which returns the confusion matrix computed with predictions performed with vali
 
 Training the model we obtained a F1 score of 0.8880 and a ROC AUC of 0.9984 from test dataset predictions and the following confusion matrix:
 
-
+![CMTest](plots/CMtest.png)
 ## When you are done
 1. Deactivate the virtual environment
 
