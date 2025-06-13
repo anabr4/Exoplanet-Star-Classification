@@ -79,7 +79,7 @@ We obtain three plots, the first one:
 
 They show that the first 5 light intensities are almost linear for fluxes near in time (in fact when we compare the first flux value with the fifth of them we see that linearity is lost), which means that the flux measured in one instant of one star is correlated to the subsequent flux of that star and between different stars in those time instants. However, there are some values quite separated from the rest, in fact, it seems that one non-exoplanet-hosting star in each pairplot has a flux actually separated from the rest, which means that we have at least one outlier.
 
-After removing them with the Standard Deviation method [4], in which the number of $\sigma$ has been chosen analysing non-exoplanet-hosting stars with spectra clearly noisy, we obtain the following plots:
+After removing them with the Standard Deviation method [4], in which the number of $\sigma$ has been chosen analysing non-exoplanet-hosting stars with clearly noisy spectra, we obtain the following plots:
 
 ![PairPlots_out](plots/pairplot_out.png)
 
