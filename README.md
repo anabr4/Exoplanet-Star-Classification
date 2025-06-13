@@ -136,7 +136,7 @@ Model training evolution is shown in the following plot, and even if validation 
 After training the model, we obtained a F1 score of 0.8880 and a ROC AUC of 0.9984 from test dataset predictions and the following confusion matrix:
 ![CMTest](plots/CMtest.png)
 
-We can observe that it is sometimes difficult for the model to distinguish between the two labels when analyzing exoplanet-hosting stars. This is also due to the fact that, as we have seen earlier, the data corresponding to stars labeled as 0 often contains a lot of noise or even variations that may resemble a periodic signal. Therefore, even though we have removed outliers, the overall quality of the data remains difficult to improve, which limits the model’s performance.
+We can observe that it is sometimes difficult for the model to distinguish between the two labels when analyzing exoplanet-hosting stars. This is also due to the fact that, as we have seen earlier, the data often contains a lot of noise or even variations that may resemble a periodic signal (in the case of stars labeled as 0). Therefore, even though we have removed outliers, the overall quality of the data remains difficult to improve, which limits the model’s performance.
 ## When you are done
 1. Deactivate the virtual environment
 
