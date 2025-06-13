@@ -90,7 +90,7 @@ And a Kernel Density Estimate Plot of Flux 1 to estimate the probability distrib
 ### Data Pre-Processing
 We have already seen one of the aspects to adress, outliers, so first, we will remove them from the train dataset. Another thing to adress is treating missing values but there aren't.
 
-Neural networks tend to perform best when their inputs are on a common scale. So, other thing that we should consider is scaling the data on a common scale before introducing it to the DL model, however, we have seen that flux spectra worsen if we perform the Standard Scaling and a Gaussian filter [5], to smooth the spectra, on training data, and it is more difficult to distinguish between the flux of a star which has an exoplanet orbiting and one which hasn't, visually. We also performed the scaling, after pre-processing data, and trained the model, but we also obtained worse results.
+Neural networks tend to perform best when their inputs are on a common scale. Therefore, one important consideration is to scale the data before feeding it into the deep learning model. However, we observed that applying Standard Scaling and a Gaussian filter [5] to smooth the spectra worsens the results: the flux spectra become harder to distinguish visually between stars with and without orbiting exoplanets. We also tried scaling the data after pre-processing and then training the model, but this approach also led to worse performance.
 
 Other thing that we should do before training our model with data is changing the values of the labels to 0 and 1 as convention:
 - 1 --> 0
