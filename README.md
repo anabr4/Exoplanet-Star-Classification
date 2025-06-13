@@ -111,10 +111,28 @@ As we have mentioned, light flux spectra after applying Standard Scaling and a G
 ![spectra_SSGaus](plots/spectra_gausSS.png)
 
 ## CNN Model
-Finally, after obtaining processed training data, we can proceed to train our proposed model, a Convolutional Neural Network, which was chosen because of its local connectivity property, which means that neurons in one layer are only connected to neurons in the next layer that are spatially close to them. This design reduce the vast majority of connections between consecutive layers, but keeps the ones that carry the most useful information. The assumption made here is that the input data has spatial significance. In our case, the star light spectra are continuous functions, so each point of the spectra function is related to its neighbors.<br>
+Finally, after obtaining processed training data, we can proceed to train our proposed model, a Convolutional Neural Network, which was chosen because of its local connectivity property, which means that neurons in one layer are only connected to neurons in the next layer that are spatially close to them. This design reduce the vast majority of connections between consecutive layers, but keeps the ones that carry the most useful information. The assumption made here is that the input data has spatial significance. In our case, the star light spectra are continuous time-dependent functions, so each point of the spectra function is related to its neighbours.<br>
 It consists of the following layer architecture:
 * Normalization Layer: after introducing features in the input layer (reshaping it to adjust it to the network), this layer applies a feature-wise normalization to the input data, converting the mean to 0 and the standard deviation to 1.
-* Convolutional 1D Layers: 
+* Convolutional 1D Layers: used to detect patterns in our time series applying several filters taking information from 2 (kernel size equal to 2) consecutive values each time. The activation function used in these layers is the Rectified linear unit (ReLU). A L2 regularization is also applied, which takes an upper bound of incoming weight vector for each individual hidden unit, which prevents weights from growing too much. As we go deeper in the network these layers are able to detect more complex patterns.
+* Batch Normalization Layers: applied after Conv1D Layer to normalize the outputs and improve the stability.
+* MaxPooling1D Layer: its combination with Conv1D Layers can reduce the length of the sequence, mantaining the most relevant characteristics (features) while reducing computational complexity.
+* Dropout Layers: important to correct overfitting. It drops out a 0.4 or 0.3 (depending on the previous layer) fraction of layer's input unit every step of training, so it makes it difficult to learn spurious patterns and helps to search broad and general ones.
+* Flatten Layer: flattens the input tensor into a 1D vector, in order to prepare the data for the fully connected layers.
+* Dense Layers: fully connected layers with ReLU activation function and different unit dimensions, progressively reducing the dimensions of the network.
+* Output Layer: one unit dense layer with Sigmoid activation function, to convert thee output in a probability (between 0 and 1) of the possitive class based on the input, making the model suitable for a binary classification problem. We set a different threshold (from 0.5) to classify between 0 and 1, based on the maximization of F1 score.
+
+For optimization of our network, the Adam optimizer was used, specifying its learning rate thanks to the Exponential Decay function (which takes an initial rate and reduce it in steps in order to learn with higher precision when the model is getting near to a good solution.<br>
+Early stopping was also used to stop training when it reaches a point of no further improvement and avoid overfitting (when validation loss stops decreasing and starts to rise again).
+
+In order to validate our model, we performed predictions on test data and plotted the confusion matrix, showing also the F1 score (harmonic mean of precision and recall metrics) and the areaunder the Receiver Operating Characteristic (ROC) curve.
+
+To train the model and obtain predictions, we can simply execute the following script:
+<pre><code> $ python cnn_classifier.py </code></pre>
+Which returns the confusion matrix computed with predictions performed with validation and test data, the evolution of model training, evaluating loss and validation loss and recall and validation recall, and finally all computed metrics.
+
+Training the model we obtained a F1 score of 0.8880 and a ROC AUC of 0.9984 from test dataset predictions and the following confusion matrix:
+
 
 ## When you are done
 1. Deactivate the virtual environment
