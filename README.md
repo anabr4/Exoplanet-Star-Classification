@@ -125,13 +125,17 @@ It consists of the following layer architecture:
 For optimization of our network, the Adam optimizer was used, specifying its learning rate thanks to the Exponential Decay function (which takes an initial rate and reduce it in steps in order to learn with higher precision when the model is getting near to a good solution.<br>
 Early stopping was also used to stop training when it reaches a point of no further improvement and avoid overfitting (when validation loss stops decreasing and starts to rise again).
 
-In order to validate our model, we performed predictions on test data and plotted the confusion matrix, showing also the F1 score (harmonic mean of precision and recall metrics) and the areaunder the Receiver Operating Characteristic (ROC) curve.
+In order to validate our model, we performed predictions on test data and plotted the confusion matrix, showing also the F1 score (harmonic mean of precision and recall metrics) and the area under the Receiver Operating Characteristic (ROC) curve. We chose a validation split of 0.2 to make the model able to correctly learn from the remaining data and have the best validation possible without increasing too much computing resources. As we have seen data is highly imbalanced and even if we performed oversampling, the validation evolution during epoch was not very stable as we can see below in the training evolution plot.
 
 To train the model and obtain predictions, we can simply execute the following script:
 <pre><code> $ python cnn_classifier.py </code></pre>
 Which returns the confusion matrix computed with predictions performed with validation and test data, the evolution of model training, evaluating loss and validation loss and recall and validation recall, and finally all computed metrics.
 
-Training the model we obtained a F1 score of 0.8880 and a ROC AUC of 0.9984 from test dataset predictions and the following confusion matrix:
+Model training evolution is shown in the following plot, and even if validation was not actually stable with the data we have, we obtained improvable but good classification results on test data.
+
+![evolution](plots/Trainevo.png)
+
+After training the model, we obtained a F1 score of 0.8880 and a ROC AUC of 0.9984 from test dataset predictions and the following confusion matrix:
 
 ![CMTest](plots/CMtest.png)
 ## When you are done
