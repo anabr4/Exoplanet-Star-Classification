@@ -215,4 +215,4 @@ fig1.savefig(str(current_path) + "/plots/CMtrain.png")
 fig2.savefig(str(current_path) + "/plots/CMtest.png")
 fig3.savefig(str(current_path) + "/plots/Trainevo.png")
     
-print("The confusion matrices have been created and saved in 'plots' folder ")
+print("The confusion matrices and training evolution have been created and saved in 'plots' folder ")
