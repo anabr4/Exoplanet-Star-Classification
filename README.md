@@ -129,7 +129,7 @@ In order to validate our model, we performed predictions on test data and plotte
 
 To train the model and obtain predictions, we can simply execute the following script:
 <pre><code> $ python cnn_classifier.py </code></pre>
-Which returns the confusion matrix computed with predictions performed with validation and test data, the evolution of model training, evaluating loss and validation loss and recall and validation recall, and finally all computed metrics.
+Which returns the confusion matrix computed with predictions performed with validation and test data, the evolution of model training, evaluating loss and validation loss and recall and validation recall, both are saved in 'plots' folder, and finally all computed metrics are printed.
 
 Model training evolution is shown in the following plot, and even if validation was not actually stable with the data we have, we obtained improvable but good classification results on test data.
 
@@ -153,7 +153,11 @@ After training the model, we obtained a F1 score of 0.8880 and a ROC AUC of 0.99
     $ rm -r Exoplanet-Star-Classification</code></pre>
 
 ## Conclusion
+In this project, we have analyzed all the necessary steps to obtain a Deep Learning classifier. Starting with the visualization and analysis of the data that we would use to train our model, followed by preprocessing to optimize it and facilitate learning as much as possible—even before training begins—and finally exploring various ways to optimize the model for the best possible performance, both through the structure of the neural network architecture (choosing the one that produced the best results) and through the optimization of the learning process and the metrics used to evaluate the model.
 
+We obtained a good classifier when analyzing the ROC AUC score, although it is clear that, based on the F1 score, there is still room to further improve the model. Additionally, we must consider that the data used for training and validating our model could have been larger in size and that they have a very low representation of the class of interest, exoplanet-hosting stars, so the validation is not entirely stable despite applying several measures to mitigate this issue.
+
+In any case, this has been a very enriching project to get started and learn the foundations of Machine Learning.
 ## References
 [1] Priyadarshini, I., & Puri, V. (2021). A convolutional neural network (CNN) based ensemble model for exoplanet detection. Earth Science Informatics, 14(2), 735-747.<br>
 [2] Chawla, N. V., Bowyer, K. W., Hall, L. O., & Kegelmeyer, W. P. (2002). SMOTE: synthetic minority over-sampling technique. Journal of artificial intelligence research, 16, 321-357.<br>
