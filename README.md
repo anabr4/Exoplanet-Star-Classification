@@ -16,7 +16,7 @@ An exoplanet, or extrasolar planet, is the one that orbits a star outside our so
 - [References](#references)
 
 ## Setup 
-Below, we provide instructions for setting up this repository on a local machine and in Google Colab (to open the Notebook Exoplanet_Detection.ipynb).
+Below, we provide instructions for setting up this repository on a local machine.
 
 ### Getting started on a local machine
 1. Open terminal and install git
@@ -40,13 +40,6 @@ Below, we provide instructions for setting up this repository on a local machine
      iv. Install the requirements (all necessary libraries).
    
      <pre><code>$ pip install -r requirements.txt </code></pre>
-   
-
-### Getting started in Colab
-1. Head to Drive and open a new Colab file.
-2. Click on File → click on Open notebook → Select 'GitHub' → paste the link to Exoplanet_Detection.ipynb → ENTER → click on the file Exoplanet_Detection.ipynb.
-3. Download and add data folder to the folder in which you have saved the notebook.
-4. In the Google Colab toolbar select: Runtime → Change Runtime. This will open another popup where you should ensure the runtime type is Python 3 and the hardware accelerator is CPU or GPU.
    
 You're all set for executing the code.
 
