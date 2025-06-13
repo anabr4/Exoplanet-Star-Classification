@@ -83,7 +83,7 @@ And a Kernel Density Estimate Plot of Flux 1 to estimate the probability distrib
 ![KDE1](plots/kde1plot.png)
 
 ## Data Pre-Processing
-We have already seen one of the aspects to adress, outliers, so first, we will remove them also from the train dataset. Another thing to adress is to treat missing values but there aren't, so we should have accurate prediction models.
+We have already seen one of the aspects to adress, outliers, so first, we will remove them from the train dataset. Another thing to adress is treating missing values but there aren't.
 
 Neural networks tend to perform best when their inputs are on a common scale. So, other thing that we should consider is scaling the data on a common scale before introducing it to the DL model, however, we have seen that flux spectra worsen if we perform the Standard Scaling and a Gaussian filter [5], to smooth the spectra, on training data, and it is more difficult to distinguish between the flux of a star which has an exoplanet orbiting and one which hasn't, visually. We also performed the scaling, after pre-processing data, and trained the model, but we also obtained worse results.
 
@@ -91,15 +91,15 @@ Other thing that we should do before training our model with data is changing th
 - 1 --> 0
 - 2 --> 1
 
-We have seen that Train and Test datasets present a class imbalanced of the order 100 to 1, so probably we could achieve a high accuracy on classifying non-exoplanet stars but we would find difficulties to have a high rate of correct detection of the minority class (in our case exoplanet stars).<br>
+We have seen that Train and Test datasets present a class imbalanced of the order 100 to 1, so probably we could achieve higher metrics on classifying non-exoplanet stars but we would find difficulties to have a high rate of correct detection of the minority class (in our case exoplanet stars).<br>
 We propose an over-sampling approach in which the minority class is over-sampled by creating “synthetic” examples (synthetic minority over-sampling technique [2]) rather than by over-sampling with replacement.<br>
-The majority class is under-sampled by randomly removing samples from the majority class population until the minority class becomes some specified percentage of the majority class.
+The majority class is under-sampled by randomly removing samples from the majority class population until the minority class becomes a specified percentage of the majority class.
 
 Executing the followiing script:
 <pre><code> $ python data_preprocessing.py </code></pre>
-We print the number of missing values (zero), we save the plot of the flux spectra, after applying data filtering and smoothing, in 'plots' folder and we save the pickle file with x_train, y_train, x_test and y_test (to ensure that it is mantained the data structure of x and y in train and test datasets) in 'data' folder. 
+We print the number of missing values (zero), we save the plot of the flux spectra, after applying data filtering and smoothing, in 'plots' folder, and we save the pickle file with x_train, y_train, x_test and y_test (to ensure that it is mantained the data structure of x and y in train and test datasets) in 'data' folder. 
 
-As we have mentioned, light flux spectra after applying Standard Scaling and a Gaussian filter is:
+As we have mentioned, light flux spectra after applying Standard Scaling and a Gaussian filter are:
 
 ![spectra_SSGaus](plots/spectra_gausSS.png)
 
@@ -115,8 +115,8 @@ It consists of the following layer architecture:
 * Dense Layers: fully connected layers with ReLU activation function and different unit dimensions, progressively reducing the dimensions of the network.
 * Output Layer: one unit dense layer with Sigmoid activation function, to convert thee output in a probability (between 0 and 1) of the possitive class based on the input, making the model suitable for a binary classification problem. We set a different threshold (from 0.5) to classify between 0 and 1, based on the maximization of F1 score.
 
-For optimization of our network, the Adam optimizer was used, specifying its learning rate thanks to the Exponential Decay function (which takes an initial rate and reduce it in steps in order to learn with higher precision when the model is getting near to a good solution.<br>
-Early stopping was also used to stop training when it reaches a point of no further improvement and avoid overfitting (when validation loss stops decreasing and starts to rise again).
+For model optimization, the Adam optimizer was used, specifying its learning rate thanks to the Exponential Decay function (which takes an initial rate and reduce it in steps in order to learn more precisely when the model is getting near to a good solution).<br>
+Early Stopping was also used to stop training when it reaches a point of no further improvement and avoid overfitting (when validation loss stops decreasing and starts to rise again).
 
 In order to validate our model, we performed predictions on test data and plotted the confusion matrix, showing also the F1 score (harmonic mean of precision and recall metrics) and the area under the Receiver Operating Characteristic (ROC) curve. We chose a validation split of 0.2 to make the model able to correctly learn from the remaining data and have the best validation possible without increasing too much computing resources. As we have seen data is highly imbalanced and even if we performed oversampling, the validation evolution during epoch was not very stable as we can see below in the training evolution plot.
 
