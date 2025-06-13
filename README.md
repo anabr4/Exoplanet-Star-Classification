@@ -9,7 +9,7 @@ An exoplanet, or extrasolar planet, is the one that orbits a star outside our so
 - [The Data: Star Light Intensities vs Time](#the-data-star-light-intensities-vs-time)
    - [Data Visualization](#data-visualization)
    - [Data Analysis](#data-analysis)
-- [Data Pre-Processing](#data-pre-processing)
+   - [Data Pre-Processing](#data-pre-processing)
 - [CNN Model](#cnn-model)
 - [When you are done](#when-you-are-done)
 - [Conclusion](#conclusion)
@@ -87,7 +87,7 @@ And a Kernel Density Estimate Plot of Flux 1 to estimate the probability distrib
 
 ![KDE1](plots/kde1plot.png)
 
-## Data Pre-Processing
+### Data Pre-Processing
 We have already seen one of the aspects to adress, outliers, so first, we will remove them from the train dataset. Another thing to adress is treating missing values but there aren't.
 
 Neural networks tend to perform best when their inputs are on a common scale. So, other thing that we should consider is scaling the data on a common scale before introducing it to the DL model, however, we have seen that flux spectra worsen if we perform the Standard Scaling and a Gaussian filter [5], to smooth the spectra, on training data, and it is more difficult to distinguish between the flux of a star which has an exoplanet orbiting and one which hasn't, visually. We also performed the scaling, after pre-processing data, and trained the model, but we also obtained worse results.
@@ -100,7 +100,7 @@ We have seen that Train and Test datasets present a class imbalanced of the orde
 We propose an over-sampling approach in which the minority class is over-sampled by creating “synthetic” examples (synthetic minority over-sampling technique [2]) rather than by over-sampling with replacement.<br>
 The majority class is under-sampled by randomly removing samples from the majority class population until the minority class becomes a specified percentage of the majority class.
 
-Executing the followiing script:
+Executing the following script:
 <pre><code> $ python data_preprocessing.py </code></pre>
 We print the number of missing values (zero), we save the plot of the flux spectra, after applying data filtering and smoothing, in 'plots' folder, and we save the pickle file with x_train, y_train, x_test and y_test (to ensure that it is mantained the data structure of x and y in train and test datasets) in 'data' folder. 
 
