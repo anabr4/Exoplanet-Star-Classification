@@ -127,7 +127,7 @@ In order to validate our model, we performed predictions on test data and plotte
 
 To train the model and obtain predictions, we can simply execute the following script:
 <pre><code> $ python cnn_classifier.py </code></pre>
-Which returns the confusion matrix computed with predictions performed with validation and test data, the evolution of model training, evaluating loss and validation loss and recall and validation recall, both are saved in 'plots' folder, and finally all computed metrics are printed.
+Which returns the confusion matrix computed with predictions performed with validation and test data, the evolution of model training, evaluating loss and validation loss and recall and validation recall. All of them are saved in 'plots' folder, and finally all computed metrics are printed.
 
 Model training evolution is shown in the following plot, and even if validation was not actually stable with the data we have, we obtained improvable but good classification results on test data.
 
