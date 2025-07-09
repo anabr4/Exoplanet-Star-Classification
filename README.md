@@ -57,7 +57,7 @@ The training data describe the change in flux of 5087 stars (observations) for 3
 *   in testing data there are 5 confirmed exoplanet-stars and 565 non-exoplanet-stars.
 
 ### Data Visualization
-Executing the data_visualization.py file we obtain the fluxes of six different star, the first three which are labelled as 2 (confirmed at least one exoplanet-hosting star) and the latter three as 1 (non-exoplanet-hosting star). This script load the data stored in the data folder and run through the Train dataset plotting each flux value with respect to its time instant, selecting three stars which are labelled as 2 and three as 1. It also shows the number of stars labelled with 1 and with 2, respectively, and the shape of both datasets, as shown above.<be>
+Executing the data_visualization.py file we obtain the fluxes of six different star, the first three are labelled as 2 (confirmed at least one exoplanet-hosting star) and the latter three as 1 (non-exoplanet-hosting star). This script load the data stored in the data folder and run through the Train dataset plotting each flux value with respect to its time instant, selecting three stars which are labelled as 2 and three as 1. It also shows the number of stars labelled with 1 and with 2, respectively, and the shape of both datasets, as shown above.<be>
 We can run it in our virtual environment doing:
 <pre><code> $ python data_visualization.py </code></pre>
 The flux spectra obtained for these six stars are the following:
